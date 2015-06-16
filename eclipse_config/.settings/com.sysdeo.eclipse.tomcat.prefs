@@ -1,0 +1,9 @@
+#Mon Dec 22 22:55:14 CST 2014
+managerUrl=http\://localhost\:8080/manager
+tomcatDir=E\:\\tomcat-6.0.26
+configMode=serverFile
+eclipse.preferences.version=1
+fixTomcatHomeBug=fixed
+contextsDir=E\:\\tomcat-6.0.26\\conf\\Catalina\\localhost
+tomcatVersion=tomcatV6
+tomcatConfigFile=E\:\\tomcat-6.0.26\\conf\\server.xml

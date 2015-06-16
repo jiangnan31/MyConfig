@@ -1,0 +1,19 @@
+# Astyle Option File for Coding Guideline of Baidu's Web Search
+
+# Coding Guidelines: http://styleguide.baidu.com/style/cpp/index.html
+
+# Astyle Document: http://astyle.sourceforge.net/astyle.html
+
+--style=attach
+--convert-tabs
+--indent=spaces=4
+--add-brackets
+--pad-header
+--unpad-paren
+--pad-oper
+--max-code-length=100
+--formatted
+--align-pointer=type
+--align-reference=type
+--break-blocks
+-Y

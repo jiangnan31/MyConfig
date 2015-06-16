@@ -1,0 +1,1236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0049)http://styleguide.baidu.com/style/java/index.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    
+    <title>java编码规范</title>
+    
+    <link rel="stylesheet" href="./java编码规范_files/sphinxdoc.css" type="text/css">
+    <link rel="stylesheet" href="./java编码规范_files/pygments.css" type="text/css">
+     <link rel="icon" href="http://styleguide.baidu.com/style/java/head.png" type="image/x-icon">
+ <link rel="shortcut icon" href="http://styleguide.baidu.com/style/java/head.png" type="image/x-icon">
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><style type="text/css"></style>
+    <script type="text/javascript" src="./java编码规范_files/jquery.js"></script>
+    <script type="text/javascript" src="./java编码规范_files/underscore.js"></script>
+    <script type="text/javascript" src="./java编码规范_files/doctools.js"></script>
+    <script type="text/javascript" src="./java编码规范_files/translations.js"></script>
+    <link rel="top" title="&lt;no title&gt;" href="./java编码规范_files/java编码规范.html">
+    <link rel="prev" title="&lt;no title&gt;" href="./java编码规范_files/java编码规范.html"> 
+  </head>
+  <body>
+    <div id="gototop" style="position: fixed; right: 30px; bottom: 30px; display: block;"><a href="http://styleguide.baidu.com/style/java/index.html#">
+<img src="./java编码规范_files/top.png"></a></div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+
+<h1 style="text-align:center;">java编码规范</h1>
+
+<div class="section" style="text-align:left; font-style:italic; ">
+    <h3>java标准委员会（java-styleguide@baidu.com）：</h3>
+    <p style="margin-bottom:0;">徐串（INF, 主席） 刘泽胤（CID）孟然（OPRD）金自翔（BDD）何修峰（UBFT）陈明智（BP&amp;IT）哈晶晶（OP）</p>
+    <p style="margin-top:0;margin-bottom:0;">刘朝阳（music-PD）蔡劲彦（VS）曹海涛（MARD）曹文斌（PCS）丁雪丰（Wallet&amp;Payment Solution）罗星（GIS）</p>
+    <p style="margin-top:0;margin-bottom:20px">参与规则制定：徐凯伦（GIS）陈仁松（TB-TD）简恒懿（ECOM）胡海（LBSGBRD-B）张宇鹏（SCloud）陈岩（OPRD）李宁（UBFT）丁熙荣（MARD）</p>
+</div>
+
+<div class="toctree-wrapper compound">
+  <table border="0" style="width:100%;margin-top:0;">
+  <tbody><tr>
+    <td>
+
+    <ul style="margin-top: 0px;">
+<li class="toctree-l1"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id1">1. 介绍</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id2">1.1. 术语</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id3">1.2. 文档说明</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id4">2. 源文件规范</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id5">2.1. 文件名</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id6">2.2. 文件编码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id7">2.3. 特殊字符</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id8">2.3.1. 空格</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id9">2.3.2. 特殊转义字符</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#ascii">2.3.3. 非ASCII字符</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id10">3. 源文件组织结构</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#license-copyright">3.1. 许可证（License）或版权声明（Copyright）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#package">3.2. package语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#import">3.3. import语句</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id11">3.3.1. 禁止通配符import</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id12">3.3.2. 不换行</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id13">3.3.3. 顺序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id14">3.3.4. 删除未使用的import语句</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id15">3.4. 类声明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id16">3.4.1. 唯一的顶层类</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id17">3.4.2. 类成员顺序：有一定的逻辑顺序即可</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#overload">3.4.3. 重载（Overload）方法必须放在一起</a></li>
+</ul>
+</li> 
+</ul>
+</li>   
+    </ul></td>
+    <td>
+
+
+    
+<li class="toctree-l1"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id18">4. 代码格式</a><ul style="margin-top: 0px; margin-bottom: 0px;">
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id19">4.1. 花括号</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id20">4.1.1. 不得省略花括号</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id21">4.1.2. 非空块中花括号的使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id22">4.1.3. 空代码块中花括号的使用</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id23">4.2. 块缩进：4个空格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id24">4.3. 每行只写一条语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id25">4.4. 列宽：120字符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id26">4.5. 换行</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id27">4.5.1. 何处换行</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id28">4.5.2. 至少用8个以上的空格缩进连续的行</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id29">4.6. 空白</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id30">4.6.1. 空行</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id31">4.6.2. 空格</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id33">4.7. 表达式圆括号</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id34">4.8. 其他说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id35">4.8.1. 枚举类</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id36">4.8.2. 变量声明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id37">4.8.3. 数组</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#switch">4.8.4. switch语句</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#annotation">4.8.5. 注解（Annotation）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id38">4.8.6. 注释</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id39">4.8.7. 修饰符</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id40">4.8.8. 数字</a></li>
+</ul>
+</li>
+</ul>
+</li>
+
+    </td>
+    <td>
+
+<li class="toctree-l1"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id41">5. 命名</a><ul style="margin-top: 0px; margin-bottom: 0px;">
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id42">5.1. 通用命名规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id43">5.2. 特定类型命名规范</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id44">5.2.1. 包命名</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id45">5.2.2. 类命名</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id46">5.2.3. 方法命名</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id47">5.2.4. 常量命名</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id48">5.2.5. 变量命名</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id49">5.2.6. 参数命名</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id50">5.2.7. 局部变量命名</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id51">5.2.8. 泛型类型变量命名</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id52">5.3. 驼峰命名方式定义</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id53">6. 编程实践</a><ul style="margin-top: 0px; margin-bottom: 0px;">
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#override">6.1. 使用@Override</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#ignore">6.2. 异常捕获：不推荐Ignore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id54">6.3. 静态成员：</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#finalizer">6.4. Finalizer：禁用</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#javadoc">7. Javadoc</a><ul style="margin-top: 0px; margin-bottom: 0px;">
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id55">7.1. 格式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id56">7.1.1. 通用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id57">7.1.2. 段落</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id58">7.1.3. @条目相关</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id59">7.2. 摘要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id60">7.3. Javadoc应该应用在哪些场合</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id61">7.3.1. 例外情况：方法本身已经足够说明用途</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id62">7.3.2. 例外情况：覆盖（Override）方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-11"><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#id63">8. 工具支持</a></li>
+
+    </td>
+    
+    </tr>
+  </tbody></table>
+</div>
+</div>
+</div>
+
+<input type="button" value="隐藏所有详细信息" class="hidden" id="btn_switch_detail_state">
+<button type="button" id="eaglebutton" onclick="eagle()">展示eagle支持规则</button>
+
+<div id="eagle" style="display:none;"><a href="http://wiki.babel.baidu.com/twiki/bin/view/Com/Pmo/Iit/%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E" title="点击查看eagle说明" target="_blank"><h2>eagle支持规则</h2></a>
+<table border="2" style="margin-bottom:20px;">
+<tbody><tr>
+<td>编号</td>
+<td>规则</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J001">2.1</a></td>
+<td>[J001] 源文件名必须和它包含的顶层类名保持一致，包括大小写，并以.java作为后缀名</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J002">2.2</a></td>
+<td>[J002] 所有源文件编码必须是UTF-8</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J003">2.3.1</a></td>
+<td>[J003] 缩进必须使用空格而不是Tab</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J004">2.3.2</a></td>
+<td>[J004] 对于有特殊转义表示的字符（\b, \t, \n, \f, \r, \", \' 和 \\），禁止使用其它等价转义方式。</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J005">3</a></td>
+<td>[J005] 源文件必须按顺序由以下部分组成：1. 许可证（License）或版权声明（Copyright）2. package语句 3. import语句 4. 唯一的顶层类 每两部分之间用一个空行分隔</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J007">3.2</a></td>
+<td>[J007] package语句占据单独一行</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J008">3.3.1</a></td>
+<td>[J008] 禁止使用通配符import，包括static和非staic imports</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J009">3.3.2</a></td>
+<td>[J009] 每条import语句占据单独一行不换行，允许超出120字符列宽限制</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J010">3.3.3</a></td>
+<td>[J010] import语句需按照一定的逻辑顺序组织</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J013">3.3.4</a></td>
+<td>[J013] 所有未使用的import语句应该被删除。</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J011">3.4.1</a></td>
+<td>[J011] 每个源文件只允许包含唯一一个顶层类</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J012">3.4.3</a></td>
+<td>[J012] 重载的方法必须放在一起，即同名的构造函数或方法之间禁止插入其他成员。</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J014">4.1.1</a></td>
+<td>[J014] 在if、else、for、do和while语句中，即使没有语句或者只有一行，也不得省略花括号</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J015">4.1.2</a></td>
+<td>[J015] 在非空代码块中使用括号时要遵循K&amp;R风格（Kernighan and Ritchie Style）：起始括号前不能换行，在其后换行。在终止括号前要有换行。如果终止括号是一句语句、一个方法、构造器或类的结尾，其后需要换行。</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J016">4.1.3</a></td>
+<td>[J016] 如果一个代码块是空的，可以直接使用{}。除了if/else-if/else和try/finally这样的多块语句</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J017">4.2</a></td>
+<td>[J017] 每次开始书写一个新的代码块时，使用4个空格进行缩进，在代码块结束时，恢复之前的缩进级别</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J018">4.3</a></td>
+<td>[J018] 每行只写一条语句</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J019">4.4</a></td>
+<td>[J019] 列宽必须为120字符，以下情况可以不遵守列宽限制：无法限制宽度的内容  package和import语句  注释中需要被粘贴到Shell里去执行的命令</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J006">4.5.1</a></td>
+<td>[J006] 换行原则：尽量在高层次的语法元素处换行</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J020">4.6.1</a></td>
+<td>[J020] 在类的不同的成员间增加空行，包括：成员变量、构造函数、方法、内部类、静态初始化块、实例初始化块等</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J041">4.6.2</a></td>
+<td>[J041] 除了语法要求，字符串内的空格，以及JavaDoc里的空格，需要在下列情况里使用空格：
+
+分隔保留字（比如if、for和catch）和随后的括号（(）
+
+分隔保留字（比如else和catch）和之前的花括号（}）
+
+在任意前花括号（{）之前要加空格，除了@SomeAnnotation({a, b})和String[][] x = {{"foo"}};这两种情况
+
+在二目和三目运算符两边增加空格，同样适用于&lt;T extends Foo &amp; Bar&gt;中的&amp;，catch (FooException | BarException e)中的|，以及foreach中的:
+
+在,、:和类型转换用的)后增加空格
+
+在//前后增加空格
+
+在声明语句的类型和名称之间，比如List&lt;String&gt; list</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J021">4.8.2</a></td>
+<td>[J021] 一行只声明一个变量</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J022">4.8.3_2</a></td>
+<td>[J022] 不要使用C的数组风格要用String[] args的方式来声明数组，而非String args[]。</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J023">4.8.4_2</a></td>
+<td>[J023] case贯穿：禁止</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J024">4.8.4_3</a></td>
+<td>[J024] 每个switch中都要有default，即使其中不包含任何语句。</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J025">4.8.5</a></td>
+<td>[J025] 添加在类、方法、构造器、成员属性上的注解直接写在注释块之后，每个注解独占一行</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J026">4.8.6</a></td>
+<td>[J026] 文档注释和多行的块注释中*必须对齐</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J027">4.8.7</a></td>
+<td>[J027] 当同时使用多个修饰符时，按照下列顺序：public protected private abstract static final transient volatile synchronized native strictfp</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J028">4.8.8</a></td>
+<td>[J028] 长整形数字使用L结尾，不能使用l，以便和1进行区分</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J029">5.2.1</a></td>
+<td>[J029] 包命名包名只允许使用小写字母，并且单词直接连接（不允许使用下划线）。</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J030">5.2.2</a></td>
+<td>[J030] 类名必须遵循大写字母开头的驼峰式命名方式</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J031">5.2.3</a></td>
+<td>[J031] 方法命名方法必须遵循小写字母开头的驼峰式命名方式。在JUnit测试方法中可以含有下划线，通常用来指定特定场景：test&lt;测试方法名&gt;&lt;场景&gt;。对于测试方法的命名没有强制性要求，也可以采用其他的命名方式</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J032">5.2.4</a></td>
+<td>[J032] 常量必须为大写单词，下划线分隔的命名方式</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J033">5.2.5</a></td>
+<td>[J033] 非常量的变量（类变量和实例变量）名必须采用小写单词驼峰命名方式</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J034">5.2.6</a></td>
+<td>[J034] 参数命名参数名必须采用小写单词驼峰命名方式。单字符参数名是非法的</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J035">5.2.7</a></td>
+<td>
+[J035] 局部变量命名局部变量名通常采用小写单词驼峰命名方式，可以自由缩写。但是除循环语法中临时变量外，不允许使用单字符命名方式。局部变量不允许使用常量命名方式，不管是否标识为final</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J036">5.2.8</a></td>
+<td>[J036] 泛型类型命名  泛型类型名必须遵循以下两种方式之一： * 单独一个大写字母，有时后面再跟一个数字。 * 类命名的最后接一个大写字母。</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J040">6.2<!--4a--></a></td>
+<td>[J040] 异常捕获：不推荐Ignore</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J037">6.4<!--4a--></a></td>
+<td>[J037] 析构器：禁止使用:强烈禁止覆盖Object.finalize方法。</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J038">7.1.3<!--4a--></a></td>
+<td>[J038] 在使用标准的@条目时按照@param，@return，@throws，@deprecated的顺序进行排列。这四个条目在使用时描述不能为空</td>
+</tr>
+<tr>
+<td><a class="reference internal" href="http://styleguide.baidu.com/style/java/index.html#J039">7.2<!--4a--></a></td>
+<td>[J039] 每个类和成员的Javadoc需要以摘要片段来开头</td>
+</tr>
+</tbody></table></div>
+  <div class="section" id="id1">
+<h1>1. 介绍<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id1" title="永久链接至标题">¶</a></h1>
+<p>为统一公司Java项目编码规范，提高可读性，特制定本规范。</p>
+<p>本规范同样适用于Android项目。</p>
+<p>本规范基于<a class="reference external" href="http://google-styleguide.googlecode.com/svn/trunk/javaguide.html">Google Java Style</a>，主要的区别如下：</p>
+<ul>
+<li><p class="first">保留了百度原有规范的4空格缩进和120字符列宽限制</p>
+</li>
+<li><p class="first">放松了对import语句的组织方式要求。只要有一定逻辑性即可，不做严格限制。但要求未使用的import语句必须删除</p>
+</li>
+<li><dl class="first docutils">
+<dt>对Android的成员变量命名允许了例外。</dt>
+<dd><ul class="first last simple">
+<li>非public非static的变量可以使用m开头</li>
+<li>非常量的static变量可以使用s开头</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">switch语句禁止了case贯穿，同时要求default必须被终止。</p>
+</li>
+<li><p class="first">允许特殊场景下的单字符参数命名，例如使用x、y表示坐标。</p>
+</li>
+<li><dl class="first docutils">
+<dt>禁用了枚举类的单行风格</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre>private enum Suit { CLUBS, HEARTS, SPADES, DIAMONDS }
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>禁用了无参数注解的不换行风格</dt>
+<dd><div class="first highlight-python"><div class="highlight"><pre>@Override public int hashCode() { ... }
+</pre></div>
+</div>
+<div class="last highlight-python"><div class="highlight"><pre>@Partial @Mock DataLoader loader;
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p class="first">增加了对使用拼音命名的说明：不建议但允许少量例外。</p>
+</li>
+<li><p class="first">禁止使用连续的空行进行分隔。</p>
+</li>
+<li><dl class="first docutils">
+<dt>禁用了一种数组初始化换行的风格。</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre>new int[]
+    {0, 1, 2, 3}
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p class="first">禁止使用连续的空格分隔。不再允许使用增加空格来进行对齐的风格。</p>
+</li>
+<li><p class="first">允许包名中包含数字，例如 <tt class="docutils literal"><span class="pre">org.apache.logging.log4j</span></tt></p>
+</li>
+<li><p class="first">JavaDoc允许多种形式的段落分隔方式</p>
+</li>
+</ul>
+<div class="line-block">
+<div class="line">相对于原先的百度Java编码规范，本规范做出了大量更加严格的限制，但是7、8、9三节的有关编程实践的规定基本取消。部门可根据自己需要对规范进行加强。</div>
+</div>
+<div class="section" id="id2">
+<h2>1.1. 术语<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id2" title="永久链接至标题">¶</a></h2>
+<p>除非特别约定，我们使用以下术语：</p>
+<ul class="simple">
+<li><strong>类</strong>用于指代所有类（class）、枚举（enum class）、接口（interface）以及注解（annotation）。</li>
+<li><strong>注释</strong>仅用于指代行间注释，<strong>Javadoc</strong>用于指代文档注释。</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>1.2. 文档说明<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id3" title="永久链接至标题">¶</a></h2>
+<p>本文中所使用的示例代码不具备唯一权威性。示例代码只代表一种符合规范的写法，也可能存在其他符合规范的不同写法。</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h1>2. 源文件规范<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id4" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id5">
+<h2>2.1. 文件名<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id5" title="永久链接至标题">¶</a></h2>
+<p id="J001">[J001] 源文件名必须和它包含的顶层类名保持一致，包括大小写，并以<tt class="docutils literal"><span class="pre">.java</span></tt>作为后缀名。</p>
+</div>
+<div class="section" id="id6">
+<h2>2.2. 文件编码<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id6" title="永久链接至标题">¶</a></h2>
+<p id="J002">[J002] 所有源文件编码必须是<strong>UTF-8</strong></p>
+</div>
+<div class="section" id="id7">
+<h2>2.3. 特殊字符<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id7" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id8">
+<h3>2.3.1. 空格<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id8" title="永久链接至标题">¶</a></h3>
+<p id="J003">[J003] 除了换行符之外，ASCII空格（0x20）是唯一合法的空格字符。这意味着</p>
+<ul class="simple">
+<li>所有在源代码中（包括字符、字符串以及注释中）出现的其他空格字符需要转义,例如Tab用<tt class="docutils literal"><span class="pre">\t</span></tt>表示。</li>
+<li>缩进必须使用空格而不是Tab</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h3>2.3.2. 特殊转义字符<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id9" title="永久链接至标题">¶</a></h3>
+<p id="J004">[J004] 对于有特殊转义表示的字符（<tt class="docutils literal"><span class="pre">\b</span></tt>, <tt class="docutils literal"><span class="pre">\t</span></tt>, <tt class="docutils literal"><span class="pre">\n</span></tt>, <tt class="docutils literal"><span class="pre">\f</span></tt>, <tt class="docutils literal"><span class="pre">\r</span></tt>, <tt class="docutils literal"><span class="pre">\"</span></tt>, <tt class="docutils literal"><span class="pre">\'</span></tt>, <tt class="docutils literal"><span class="pre">\\</span></tt>），禁止使用其它等价转义方式。例如<tt class="docutils literal"><span class="pre">\012</span></tt>或者<tt class="docutils literal"><span class="pre">\u00a</span></tt>表示。</p>
+</div>
+<div class="section" id="ascii">
+<h3>2.3.3. 非ASCII字符<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#ascii" title="永久链接至标题">¶</a><img id="i233" class="imagetoggle" onclick="changeImage(&#39;d233&#39;,&#39;i233&#39;);" src="./java编码规范_files/toggleclose.gif"></h3>
+<p>对于非ASCII字符，可以使用实际字符（如<tt class="docutils literal"><span class="pre">∞</span></tt>）或者它的Unicode转义（如<tt class="docutils literal"><span class="pre">\u221e</span></tt>），取决于哪种写法的可读性更好。</p>
+<p>使用注释有助于增强可读性</p><div id="d233" class="divtoggle" style="display:block">
+<p>示例：</p>
+<table border="1">
+  <tbody><tr>
+    <th> Example</th>
+    <th> Discussion</th>
+  </tr>
+  
+  <tr>  
+      <td>String unitAbbrev = "μs";</td>
+      <td>最佳写法，无需注释就可以理解</td>
+  </tr>
+  <tr>  
+      <td>String unitAbbrev = "\u03bcs"; // "μs"</td>
+      <td>虽然合法但是很没有必要的写法</td>
+  </tr>
+  <tr>  
+      <td>String unitAbbrev = "\u03bcs"; // Greek letter mu, "s"</td>
+      <td>虽然合法但是很难理解的写法</td>
+  </tr>
+  <tr>  
+      <td>String unitAbbrev = "\u03bcs";</td>
+      <td>让人完全读不懂的写法</td>
+  </tr>
+  <tr>  
+      <td>return '\ufeff' + content; // byte order mark</td>
+      <td>很好的写法，用Unicode转义来表示非打印字符，并且有合适的注释帮助阅读者理解</td>
+  </tr>
+  
+</tbody></table>
+</div>
+</div>
+</div></div>
+<div class="section" id="id10">
+<h1>3. 源文件组织结构<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id10" title="永久链接至标题">¶</a></h1><div id="J005">
+<p>[J005] 源文件必须按顺序由以下部分组成：</p>
+<ol class="arabic simple">
+<li>许可证（License）或版权声明（Copyright）</li>
+<li>package语句</li>
+<li>import语句</li>
+<li>唯一的顶层类</li>
+</ol>
+<p>每两部分之间用一个空行分隔</p></div></div>
+<div class="section" id="license-copyright">
+<h2>3.1. 许可证（License）或版权声明（Copyright）<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#license-copyright" title="永久链接至标题">¶</a></h2>
+<p>如果文件有许可证（License）或版权声明（Copyright），放在最开头。如果没有的话，此部分可以忽略。</p>
+</div>
+<div class="section" id="package">
+<h2>3.2. package语句<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#package" title="永久链接至标题">¶</a></h2>
+<p id="J007">[J007] package语句占据单独一行不换行，允许超出120字符列宽限制。</p>
+</div>
+<div class="section" id="import">
+<h2>3.3. import语句<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#import" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id11">
+<h3>3.3.1. 禁止通配符import<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id11" title="永久链接至标题">¶</a></h3>
+<p id="J008">[J008] 无论是static还是非staic imports，均禁止使用通配符import。</p>
+</div>
+<div class="section" id="id12">
+<h3>3.3.2. 不换行<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id12" title="永久链接至标题">¶</a></h3>
+<p id="J009">[J009] 每条import语句占据单独一行不换行，允许超出120字符列宽限制。</p>
+</div>
+<div class="section" id="id13">
+<h3>3.3.3. 顺序<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id13" title="永久链接至标题">¶</a><img id="i333" class="imagetoggle imageJ010" onclick="changeImage(&#39;d333&#39;,&#39;i333&#39;);" src="./java编码规范_files/toggleclose.gif"></h3>
+<p id="J010">[J010] import语句需按照一定的逻辑顺序组织。</p><div id="d333" class="divtoggle divJ010" style="display:block">
+<p>可参考以下的组织形式，不强制：</p>
+<p>按以下顺序进行分组，每两组之间用一个空行分隔。</p>
+<ol class="arabic">
+<li><p class="first">所有的static import语句</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">com.baidu</span> <span class="pre">import</span></tt>语句（仅当源文件属于com.baidu时适用）</p>
+</li>
+<li><dl class="first docutils">
+<dt>第三方包。每个顶层包独立一组，按ASCII顺序排列</dt>
+<dd><p class="first last">例如：<tt class="docutils literal"><span class="pre">android</span></tt>, <tt class="docutils literal"><span class="pre">com</span></tt>, <tt class="docutils literal"><span class="pre">junit</span></tt>, <tt class="docutils literal"><span class="pre">org</span></tt>, <tt class="docutils literal"><span class="pre">sun</span></tt></p>
+</dd>
+</dl>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">java</span></tt> import语句</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">javax</span></tt> import语句</p>
+</li>
+</ol>
+<p>组内不包含空行，按照所import的包名的ASCII码顺序排列。</p>
+</div></div>
+<div class="section" id="id14">
+<h3>3.3.4.删除未使用的import语句<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id14" title="永久链接至标题">¶</a></h3>
+<p id="J013">[J013] 所有未使用的import语句应该被删除。</p>
+</div>
+</div>
+<div class="section" id="id15">
+<h2>3.4. 类声明<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id15" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id16">
+<h3>3.4.1. 唯一的顶层类<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id16" title="永久链接至标题">¶</a><img id="i341" class="imagetoggle imageJ011" onclick="changeImage(&#39;d341&#39;,&#39;i341&#39;);" src="./java编码规范_files/toggleclose.gif"></h3>
+<p id="J011">[J011] 每个源文件只允许包含唯一一个顶层类。</p><div id="d341" class="divtoggle divJ011" style="display:block"><p>以下写法虽然符合Java语法，但禁止使用</p>
+<div class="highlight-python"><div class="highlight"><pre>public class A {
+}
+
+class B {
+}
+</pre></div>
+</div>
+<p>必须把B放在一个独立的源文件中</p>
+</div></div>
+<div class="section" id="id17">
+<h3>3.4.2. 类成员顺序：有一定的逻辑顺序即可<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id17" title="永久链接至标题">¶</a></h3>
+<p>不规定严格的类成员顺序，但需要遵循一定逻辑规律，让阅读者容易理解。例如不建议把新添加的方法一律放在最后，而是应该插入到合适的地方。</p>
+</div>
+<div class="section" id="overload">
+<h3>3.4.3. 重载（Overload）方法必须放在一起<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#overload" title="永久链接至标题">¶</a></h3>
+<p id="J012">[J012] 重载的方法必须放在一起，即同名的构造函数或方法之间禁止插入其他成员。</p>
+</div>
+</div>
+</div>
+<div class="section" id="id18">
+<h1>4. 代码格式<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id18" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id19">
+<h2>4.1. 花括号<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id19" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id20">
+<h3>4.1.1. 不得省略花括号<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id20" title="永久链接至标题">¶</a></h3>
+<p id="J014">[J014] 在if、else、for、do和while语句中，即使没有语句或者只有一行，也不得省略花括号。</p>
+</div>
+<div class="section" id="id21">
+<h3>4.1.2. 非空块中花括号的使用<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id21" title="永久链接至标题">¶</a><img id="i412" class="imagetoggle imageJ015" onclick="changeImage(&#39;d412&#39;,&#39;i412&#39;);" src="./java编码规范_files/toggleclose.gif"></h3><div id="J015">
+<p>[J015] 在非空代码块中使用花括号时要遵循K&amp;R风格（Kernighan and Ritchie Style）：</p>
+<ul class="simple">
+<li>左花括号（<tt class="docutils literal"><span class="pre">{</span></tt>）前不能换行，在其后换行。</li>
+<li>在右花括号（<tt class="docutils literal"><span class="pre">}</span></tt>）前要有换行。</li>
+<li>如果右花括号是一句语句、一个方法、构造函数或非匿名类的结尾，其后需要换行。</li>
+</ul></div><div id="d412" class="divtoggle divJ015" style="display:block">
+<div class="highlight-python"><div class="highlight"><pre>return new MyClass() { // 左花括号前不能换行，在其后换行
+    @Override
+    public void method() {
+        if (condition()) {
+            try {
+                do {
+                    something();
+                } while (!stop()); // do-while中间的右花括号后
+            } catch (ProblemException e) { // try-catch中间的右花括号后无需换行
+                recover();
+            } // try-catch结束，右花括号后需要换行
+        } else { // if-else中间的右花括号后无需换行
+            doSomethingElese();
+        } // if-else结束，右花括号后需要换行
+    }
+}; // 匿名类结尾的右花括号后无需换行
+</pre></div>
+</div>
+</div></div>
+<div class="section" id="id22">
+<h3>4.1.3. 空代码块中花括号的使用<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id22" title="永久链接至标题">¶</a><img id="i413" class="imagetoggle imageJ016" onclick="changeImage(&#39;d413&#39;,&#39;i413&#39;);" src="./java编码规范_files/toggleclose.gif"></h3>
+<p id="J016">[J016] 如果一个代码块是空的，可以直接使用<tt class="docutils literal"><span class="pre">{}</span></tt>。除了<tt class="docutils literal"><span class="pre">if/else-if/else</span></tt>和<tt class="docutils literal"><span class="pre">try/catch/finally</span></tt>这样的多块语句：</p><div id="d413" class="divtoggle divJ016" style="display:block">
+<div class="highlight-python"><div class="highlight"><pre>EmptyConstructor() {}
+</pre></div>
+</div>
+</div>
+</div></div>
+<div class="section" id="id23">
+<h2>4.2. 块缩进：4个空格<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id23" title="永久链接至标题">¶</a></h2>
+<p id="J017">[J017] 每次开始书写一个新的代码块时，使用4个空格进行缩进，在代码块结束时，恢复之前的缩进级别。</p>
+</div>
+<div class="section" id="id24">
+<h2>4.3. 每行只写一条语句<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id24" title="永久链接至标题">¶</a></h2>
+<p id="J018">[J018] 每条语句之后都要换行。</p>
+</div>
+<div class="section" id="id25">
+<h2>4.4. 列宽：120字符<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id25" title="永久链接至标题">¶</a></h2>
+<p id="J019">[J019] 列宽必须为120字符，以下情况可以不遵守列宽限制：</p>
+<ul class="simple">
+<li>无法限制宽度的内容，比如注释里的长URL</li>
+<li><tt class="docutils literal"><span class="pre">package</span></tt>和<tt class="docutils literal"><span class="pre">import</span></tt>语句</li>
+<li>注释中需要被粘贴到Shell里去执行的命令</li>
+</ul>
+</div>
+<div class="section" id="id26">
+<h2>4.5. 换行<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id26" title="永久链接至标题">¶</a></h2>
+<p>换行指的是一行语句由于某些限制（例如列宽）需要分为多行的情况。</p>
+<div class="section" id="id27">
+<h3>4.5.1. 何处换行<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id27" title="永久链接至标题">¶</a></h3><div id="J006">
+<p>[J006] 换行原则：尽量在高层次的语法元素处换行。此外：</p>
+<ul class="simple">
+<li>在非赋值操作符前换行，该原则也适用于这些符号：点（<tt class="docutils literal"><span class="pre">.</span></tt>），泛型类型绑定中的与符号（<tt class="docutils literal"><span class="pre">&lt;T</span> <span class="pre">extends</span> <span class="pre">Foo</span> <span class="pre">&amp;</span> <span class="pre">Bar&gt;</span></tt>），<tt class="docutils literal"><span class="pre">catch</span></tt>中的竖线（<tt class="docutils literal"><span class="pre">catch</span> <span class="pre">(FooException</span> <span class="pre">|</span> <span class="pre">BarException</span> <span class="pre">e)</span></tt>）</li>
+<li>在赋值操作符（<tt class="docutils literal"><span class="pre">=</span></tt>）后换行，该原则也适用于foreach语句中的<tt class="docutils literal"><span class="pre">:</span></tt>。例外：在给注解（<tt class="docutils literal"><span class="pre">Annotation</span></tt>）中的数组类型参数赋值时，应参考数组初始化形式，优先选择在左花括号（<tt class="docutils literal"><span class="pre">{</span></tt>）后面换行，详见下面的例子。</li>
+<li>方法、构造函数名字和左圆括号（<tt class="docutils literal"><span class="pre">(</span></tt>）之间不换行</li>
+<li>逗号（<tt class="docutils literal"><span class="pre">,</span></tt>）紧跟前面的内容不换行</li>
+</ul>
+</div></div>
+<div class="section" id="id28">
+<h3>4.5.2. 至少用8个以上的空格缩进连续的行<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id28" title="永久链接至标题">¶</a><img id="i452" class="imagetoggle" onclick="changeImage(&#39;d452&#39;,&#39;i452&#39;);" src="./java编码规范_files/toggleclose.gif"></h3>
+<p>在连续换行时，第二行要比上一行多缩进8个空格。从第三行开始，可以视情况在上一行缩进基础上增加更多空格。一个原则是如果同一条语句的两行采用同样的缩进，那么它们打头的语法元素必须在语法树上处于同一级。详见下面最后一个例子。</p><div id="d452" class="divtoggle" style="display:block">
+<div class="highlight-python"><div class="highlight"><pre>public class Example {
+    @ExampleAnnotation(stringArrayValue = {
+        "value1", "value2", "value3", "value4", "value5", "value6", "value7", "value8"
+    })
+    public void exampleMethod() {
+        // 在非赋值操作符前换行
+        method1("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+                + "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
+
+        // 该原则也适用于这些符号：点（.）
+        method2("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")
+                .method1("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
+
+        // 在赋值操作符（=）后换行
+        String varWithVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongName =
+                "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+        // 该原则也适用于foreach语句中的:
+        for (int anotherVarWithVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongName :
+                new int[] {0, 1, 2, 4, 5, 6, 7, 8, 9}) {
+        }
+
+        // 方法、构造函数名字和(之间不换行
+        methodWithVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongName(
+                "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
+
+        // 逗号,紧跟前面的内容不换行
+        methodWithTwoParameter("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+                "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
+
+        // 至少用8个以上的空格缩进连续的行
+        methodWithMultipleParameter("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+                "如果同一条语句的两行采用同样的缩进，那么它们打头的语法元素必须在语法树上处于同一级"
+                    + "如果有多行需要换行可以按照需要调整为更多空格", // 不一定需要再次缩进8格，只要比上一级多就行
+                "如果同一条语句的两行采用同样的缩进，那么它们打头的语法元素必须在语法树上处于同一级");
+
+    }
+}
+</pre></div>
+</div>
+</div>
+</div></div>
+<div class="section" id="id29">
+<h2>4.6. 空白<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id29" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id30">
+<h3>4.6.1. 空行<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id30" title="永久链接至标题">¶</a></h3><div id="J020">
+<p>[J020] 在以下情况下增加空行：</p>
+<ul>
+<li><dl class="first docutils">
+<dt>在类的不同的成员间增加空行，包括：成员变量、构造函数、方法、内部类、静态初始化块、实例初始化块等</dt>
+<dd><ul class="first last simple">
+<li>两个成员变量声明之间可以不加空行。空行通常用于对成员变量进行逻辑分组。</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">方法体内，按需增加空行，以便从逻辑上对语句进行分组</p>
+</li>
+</ul>
+<p>禁止使用连续的空行。</p>
+</div></div>
+<div class="section" id="id31">
+<h3>4.6.2. 空格<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id31" title="永久链接至标题">¶</a><img id="i462" class="imagetoggle imageJ041" onclick="changeImage(&#39;d462&#39;,&#39;i462&#39;);" src="./java编码规范_files/toggleclose.gif"></h3><div id="J041">
+<p>[J041] 除了语法要求，字符串内的空格，以及JavaDoc里的空格，需要在下列情况里使用空格</p>
+<ul>
+<li><p class="first">保留字（比如<tt class="docutils literal"><span class="pre">if</span></tt>、<tt class="docutils literal"><span class="pre">for</span></tt>和<tt class="docutils literal"><span class="pre">catch</span></tt>）和随后的左圆括号（<tt class="docutils literal"><span class="pre">(</span></tt>）之间要有一个空格</p>
+</li>
+<li><p class="first">保留字（比如<tt class="docutils literal"><span class="pre">else</span></tt>和<tt class="docutils literal"><span class="pre">catch</span></tt>）和之前的右花括号（<tt class="docutils literal"><span class="pre">}</span></tt>）之间要有一个空格</p>
+</li>
+<li><p class="first">在任意左花括号（<tt class="docutils literal"><span class="pre">{</span></tt>）之前要有一个空格。<tt class="docutils literal"><span class="pre">@SomeAnnotation({a,</span> <span class="pre">b})</span></tt>和<tt class="docutils literal"><span class="pre">String[][]</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">{{"foo"}};</span></tt>这两种情况除外。</p>
+</li>
+<li><p class="first">在二目和三目运算符两边各要有一个空格。该规则同样适用于<tt class="docutils literal"><span class="pre">&lt;T</span> <span class="pre">extends</span> <span class="pre">Foo</span> <span class="pre">&amp;</span> <span class="pre">Bar&gt;</span></tt>中的<tt class="docutils literal"><span class="pre">&amp;</span></tt>，<tt class="docutils literal"><span class="pre">catch</span> <span class="pre">(FooException</span> <span class="pre">|</span> <span class="pre">BarException</span> <span class="pre">e)</span></tt>中的<tt class="docutils literal"><span class="pre">|</span></tt>，以及foreach中的<tt class="docutils literal"><span class="pre">:</span></tt></p>
+</li>
+<li><p class="first">在逗号（<tt class="docutils literal"><span class="pre">,</span></tt>）”、冒号（<tt class="docutils literal"><span class="pre">:</span></tt>）和类型转换用的右圆括号（<tt class="docutils literal"><span class="pre">)</span></tt>）后要有一个空格</p>
+</li>
+<li><p class="first">在用于行末注释的<tt class="docutils literal"><span class="pre">//</span></tt>前后各要有一个空格</p>
+</li>
+<li><p class="first">在声明语句的类型和名称之间要有一个空格，比如<tt class="docutils literal"><span class="pre">List&lt;String&gt;</span> <span class="pre">list</span></tt></p>
+</li>
+<li><dl class="first docutils">
+<dt>以下两种初始化数组的形式均可接受：</dt>
+<dd><ul class="first last simple">
+<li>new int[] {5, 6}</li>
+<li>new int[] { 5, 6 }</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">除行首缩进、注释和字符串内的空格以外，禁止使用连续的空格</p>
+</li>
+</ul><div id="d462" class="divtoggle divJ041" style="display:block">
+<div class="highlight-python"><div class="highlight"><pre>public class Example {
+    public List&lt;Element&gt; getAllValidElements(String[] nodes) throws PermissionDeniedException {
+        List&lt;Element&gt; result;
+        for (int i = 0; i &lt; nodes.length; ++i) {
+            if (checkPermission(nodes[i])) {
+                for (int id : getAllElementIdList(nodes[i])) {
+                    Element e = (Element) getElement(id);
+                    if (isValidElement(e)) {
+                        result.add(e);
+                    }
+                }
+            } else {
+                throw new PermissionDeniedException("Can not access node " + nodes[i]);
+            }
+        }
+        return result;
+    }
+}
+</pre></div>
+</div>
+</div></div>
+
+<div class="section" id="id33">
+<h2>4.7. 表达式圆括号<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id33" title="永久链接至标题">¶</a></h2>
+<p>由于不能保证所有人都清楚Java操作符优先级，因此推荐在表达式中增加圆括号用来明确其中运算的优先级。不做强制要求。</p>
+</div>
+<div class="section" id="id34">
+<h2>4.8. 其他说明<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id34" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id35">
+<h3>4.8.1. 枚举类<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id35" title="永久链接至标题">¶</a><img id="i481" class="imagetoggle" onclick="changeImage(&#39;d481&#39;,&#39;i481&#39;);" src="./java编码规范_files/toggleclose.gif"></h3>
+<p>用逗号(,)分隔每个枚举常量，也可以用换行。</p><div id="d481" class="divtoggle" style="display:block">
+<div class="highlight-python"><div class="highlight"><pre>enum Color {
+    RED,
+    GREEN,
+    YELLOW
+}
+
+enum Action {
+    CREATE, READ, UPDATE, DELETE
+}
+</pre></div>
+</div>
+</div></div>
+<div class="section" id="id36">
+<h3>4.8.2. 变量声明<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id36" title="永久链接至标题">¶</a></h3>
+<ul class="simple"><div id="J021">
+<li>[J021] 一行只声明一个变量</li>
+<li>在需要时声明变量，声明后尽快初始化</li></div>
+</ul>
+</div>
+<div class="section" id="id37">
+<h3>4.8.3. 数组<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id37" title="永久链接至标题">¶</a><img id="i483" class="imagetoggle" onclick="changeImage(&#39;d483&#39;,&#39;i483&#39;);" src="./java编码规范_files/toggleclose.gif"></h3>
+<ul>
+<li><p class="first">初始化换行原则</p>
+<blockquote>
+<div><p>数组初始化通常不换行。在需要换行时，原则和普通代码块保持一致</p>
+</div></blockquote>
+</li>
+</ul><div id="d483" class="divtoggle" style="display:block"><p>例如以下示例均合法</p>
+<div class="highlight-python"><div class="highlight"><pre>new int[] {
+    0, 1, 2, 3
+}
+
+new int[] {
+    0, 1,
+    2, 3
+}
+
+new int[] {
+    0,
+    1,
+    2,
+    3,
+}
+</pre></div>
+</div></div>
+<ul>
+<li><p class="first" id="J022">不要使用C的数组声明风格</p>
+<blockquote>
+<div><p>[J022] 必须用<tt class="docutils literal"><span class="pre">String[]</span> <span class="pre">args</span></tt>的方式来声明数组，而非<tt class="docutils literal"><span class="pre">String</span> <span class="pre">args[]</span></tt>。</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="switch">
+<h3>4.8.4. switch语句<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#switch" title="永久链接至标题">¶</a><img id="i484" class="imagetoggle imageJ023 imageJ024" onclick="changeImage(&#39;d484&#39;,&#39;i484&#39;);" src="./java编码规范_files/toggleclose.gif"></h3>
+<p>[J024] 说明：一个switch块包含了一个或多个语句组。每组都以一个或多个标签开头（如case 0:或者default:），后面跟着一个或多个语句。</p>
+<ul>
+<li><dl class="first docutils">
+<dt>缩进</dt>
+<dd><ul class="first last simple">
+<li>switch块内的内容，使用4个空格缩进。</li>
+<li>在每个标签后换行，换行后缩进4个空格，下一个标签恢复原缩进。</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt id="J023">[J023] case贯穿：禁止</dt>
+<dd><ul class="first last simple">
+<li>case必须被终止（<tt class="docutils literal"><span class="pre">break</span></tt>、<tt class="docutils literal"><span class="pre">return</span></tt>和抛出异常）。不允许使用case贯穿，这种风格容易导致bug。如有实际需要的场景，应使用if-else来实现。</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt id="J024">default</dt>
+<dd><ul class="first last simple">
+<li>每个switch中都要有<tt class="docutils literal"><span class="pre">default</span></tt>。</li>
+<li>default也必须被终止（<tt class="docutils literal"><span class="pre">break</span></tt>、<tt class="docutils literal"><span class="pre">return</span></tt>和抛出异常）。</li>
+<li>在default预期不可能被执行的时候，应执行抛出异常等可以有效发现bug的动作。</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul><div id="d484" class="divtoggle divJ023 divJ024" style="display:block">
+<div class="highlight-python"><div class="highlight"><pre>switch (dayOfWeek) {
+    case MONDAY:
+        ...
+        break;
+    case TUESDAY:
+        ...
+        break;
+
+    ...
+
+    default:
+        throw new RuntimeException("Unhandled case " + dayOfWeek);
+}
+</pre></div>
+</div>
+</div></div>
+<div class="section" id="annotation">
+<h3>4.8.5. 注解（Annotation）<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#annotation" title="永久链接至标题">¶</a><img id="i485" class="imagetoggle imageJ025" onclick="changeImage(&#39;d485&#39;,&#39;i485&#39;);" src="./java编码规范_files/toggleclose.gif"></h3>
+<p id="J025">[J025] 添加在类、方法、构造函数、成员属性上的注解（Annotation）直接写在注释块之后，每个注解独占一行。</p><div id="d485" class="divtoggle divJ025" style="display:block">
+<div class="highlight-python"><div class="highlight"><pre>@Override
+@Nullable
+public String getNameIfPresent() {
+    ...
+}
+</pre></div>
+</div>
+</div></div>
+<div class="section" id="id38">
+<h3>4.8.6. 注释<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id38" title="永久链接至标题">¶</a><img id="i486" class="imagetoggle imageJ026" onclick="changeImage(&#39;d486&#39;,&#39;i486&#39;);" src="./java编码规范_files/toggleclose.gif"></h3>
+<p id="J026">[J026] 块注释的缩进与其上下文保持一致，可以使用<tt class="docutils literal"><span class="pre">/*</span> <span class="pre">...</span> <span class="pre">*/</span></tt>或者<tt class="docutils literal"><span class="pre">//</span> <span class="pre">...</span></tt>的风格。多行的块注释中<tt class="docutils literal"><span class="pre">*</span></tt>必须对齐。</p><div id="d486" class="divtoggle divJ026" style="display:block">
+<div class="highlight-python"><div class="highlight"><pre>/*
+ * 可以
+ * 这样
+ */
+
+// 也可以
+// 这样
+
+/* 或者甚至
+ * 这样 */
+</pre></div>
+</div>
+</div></div>
+<div class="section" id="id39">
+<h3>4.8.7. 修饰符<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id39" title="永久链接至标题">¶</a></h3>
+<p id="J027">[J027] 当同时使用多个修饰符时，按照下列顺序：</p>
+<div class="highlight-python"><div class="highlight"><pre>public protected private abstract static final transient volatile synchronized native strictfp
+</pre></div>
+</div>
+</div>
+<div class="section" id="id40">
+<h3>4.8.8. 数字<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id40" title="永久链接至标题">¶</a></h3>
+<p id="J028">[J028] 长整型数字必须使用大写字母L结尾，不能使用小写字母l，以便和数字1进行区分。例如使用<tt class="docutils literal"><span class="pre">3000000000L</span></tt>而不是<tt class="docutils literal"><span class="pre">3000000000l</span></tt></p>
+</div>
+</div>
+</div>
+<div class="section" id="id41">
+<h1>5. 命名<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id41" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id42">
+<h2>5.1. 通用命名规范<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id42" title="永久链接至标题">¶</a></h2>
+<p>所有的标识符只允许使用ASCII字符和数字。合法的标识符命名必须能够匹配正则表达式：<tt class="docutils literal"><span class="pre">\w</span></tt>。</p>
+<p>禁止使用一些特定的前缀和后缀，比如：<tt class="docutils literal"><span class="pre">name_</span></tt>、<tt class="docutils literal"><span class="pre">mName</span></tt>、<tt class="docutils literal"><span class="pre">m_name</span></tt>。Android的成员变量命名允许例外，详见2.5.2.5 变量命名。</p>
+<p>不建议使用中文拼音来命名。例外：</p>
+<ul class="simple">
+<li>得到广泛认可的中文产品名，像贴吧、凤巢等</li>
+<li>以个人命名的算法或数据结构的实现</li>
+</ul>
+</div>
+<div class="section" id="id43">
+<h2>5.2. 特定类型命名规范<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id43" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id44">
+<h3>5.2.1. 包命名<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id44" title="永久链接至标题">¶</a></h3>
+<p id="J029">[J029] 包名只允许使用小写字母和数字，并且单词直接连接（不允许使用下划线）。比如：<tt class="docutils literal"><span class="pre">com.baidu.somebusiness</span></tt>，而<tt class="docutils literal"><span class="pre">com.baidu.someBusiness</span></tt>或<tt class="docutils literal"><span class="pre">com.baidu.some_business</span></tt>是不允许的。</p>
+</div>
+<div class="section" id="id45">
+<h3>5.2.2. 类命名<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id45" title="永久链接至标题">¶</a></h3>
+<p id="J030">[J030] 类名必须遵循大写字母开头的驼峰式命名方式（UpperCamelCase）。</p>
+<p>类名通常使用名词或名词短语，比如：<tt class="docutils literal"><span class="pre">Customer</span></tt>、<tt class="docutils literal"><span class="pre">ImmutableList</span></tt>。接口名也可以是名词或名词短语（比如：<tt class="docutils literal"><span class="pre">List</span></tt>），但很多时候会使用形容词代替（比如：<tt class="docutils literal"><span class="pre">Runnable</span></tt>）。</p>
+<p>对于注解（Annotation）命名没有特定的规定。</p>
+<p>单测类的命名规则必须以被测试类名开始，<tt class="docutils literal"><span class="pre">Test</span></tt>单词结束。比如：<tt class="docutils literal"><span class="pre">BubbleSortTest</span></tt>。</p>
+</div>
+<div class="section" id="id46">
+<h3>5.2.3. 方法命名<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id46" title="永久链接至标题">¶</a></h3><div id="J031">
+<p>[J031] 方法必须遵循小写字母开头的驼峰式命名方式（lowerCamelCase）。</p>
+<p>方法名通常使用动词或动词短语，比如：<tt class="docutils literal"><span class="pre">sendMessage</span></tt>、<tt class="docutils literal"><span class="pre">stop</span></tt>。</p>
+<p>在单测方法中可以含有下划线，通常用来指定特定场景：<tt class="docutils literal"><span class="pre">test&lt;测试方法名&gt;_&lt;场景&gt;</span></tt>，比如：<tt class="docutils literal"><span class="pre">testPop_emptyStack</span></tt>。</p>
+<p>对于测试方法的命名没有强制性要求，也可以采用其他的命名方式。</p>
+</div></div>
+<div class="section" id="id47">
+<h3>5.2.4. 常量命名<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id47" title="永久链接至标题">¶</a><img id="i524" class="imagetoggle imageJ032" onclick="changeImage(&#39;d524&#39;,&#39;i524&#39;);" src="./java编码规范_files/toggleclose.gif"></h3>
+<p id="J032">[J032] 常量必须为大写单词，下划线分隔的命名方式。但什么是常量则没有特别精确的定义，需要主观判断。</p>
+<p>首先常量一定是static final的字段，但是不是所有的static final字段都是常量。一个字段是否是常量需要按照语义进行判断。举例：如果一个变量的状态是可以改变的，那么几乎可以肯定它不是一个常量。仅仅看对象不可改变是不够的。</p><div id="d524" class="divtoggle divJ032" style="display:block">
+<div class="highlight-python"><div class="highlight"><pre>// 常量
+static final int NUMBER = 5;
+static final ImmutableList&lt;String&gt; NAMES = ImmutableList.of("Ed", "Ann");
+static final Joiner COMMA_JOINER = Joiner.on(',');
+static final SomeMutableType[] EMPTY_ARRAY = {};
+enum SomeEnum {
+    ENUM_CONSTANT
+}
+
+// 非常量
+static String nonFinal = "non-final";
+final String nonStatic = "non-static";
+static final Set&lt;String&gt; mutableCollection = new HashSet&lt;String&gt;();
+static final ImmutableSet&lt;SomeMutableType&gt; mutableElements = ImmutableSet.of(mutable);
+static final Logger logger = Logger.getLogger(MyClass.getName());
+static final String[] nonEmptyArray = {"these", "can", "change"};常量通常使用名词或名词短语。
+</pre></div>
+</div>
+</div></div>
+<div class="section" id="id48">
+<h3>5.2.5. 变量命名<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id48" title="永久链接至标题">¶</a></h3><div id="J033">
+<p>[J033] 非常量的变量（类变量和实例成员变量）名必须采用小写单词驼峰命名方式（lowerCamelCase）。</p>
+<p>变量命名通常使用名词和名词短语。举例：<tt class="docutils literal"><span class="pre">computedValue</span></tt>、<tt class="docutils literal"><span class="pre">index</span></tt>。</p>
+<p>对于Android，允许一些命名例外：</p>
+<ul class="simple">
+<li>非public非static的变量可以使用m开头</li>
+<li>非常量的static变量可以使用s开头</li>
+</ul>
+</div></div>
+<div class="section" id="id49">
+<h3>5.2.6. 参数命名<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id49" title="永久链接至标题">¶</a></h3><div id="J034">
+<p id="J034">[J034] 参数名必须采用小写单词驼峰命名方式（lowerCamelCase）。</p>
+<p>严格限制使用单字符命名参数。某些约定俗成不会发生理解偏差的场景可以允许使用单字符参数，例如使用x，y表示坐标的时候。</p>
+</div></div>
+<div class="section" id="id50">
+<h3>5.2.7. 局部变量命名<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id50" title="永久链接至标题">¶</a></h3><div id="J035">
+<p>[J035] 局部变量名通常采用小写单词驼峰命名方式（lowerCamelCase），可以自由缩写。</p>
+<p>除循环变量和临时变量外，不允许使用单字符命名。</p>
+<p>局部变量禁止使用常量命名方式，不管是否标识为final。</p>
+</div></div>
+<div class="section" id="id51">
+<h3>5.2.8. 泛型类型变量命名<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id51" title="永久链接至标题">¶</a></h3><div id="J036">
+<p>[J036] 泛型类型变量名必须遵循以下两种方式之一：</p>
+<ul class="simple">
+<li>单独一个大写字母，有时后面再跟一个数字。（例如，<tt class="docutils literal"><span class="pre">E</span></tt>、<tt class="docutils literal"><span class="pre">T2</span></tt>）。</li>
+<li>类命名的最后接一个大写字母。（例如，<tt class="docutils literal"><span class="pre">RequestT</span></tt>）。</li>
+</ul>
+</div></div>
+</div>
+<div class="section" id="id52">
+<h2>5.3. 驼峰命名方式定义<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id52" title="永久链接至标题">¶</a><img id="i53" class="imagetoggle" onclick="changeImage(&#39;d53&#39;,&#39;i53&#39;);" src="./java编码规范_files/toggleclose.gif"></h2>
+<p>通常有多种方式将短语组织成驼峰方式，像一些缩写词：IPv6、iOS等。为了统一，必须遵循以下几点规则。</p>
+<ol class="arabic">
+<li><p class="first">将字符全部转换为ASCII字符，并且去掉’等符号。例如，<tt class="docutils literal"><span class="pre">Müller's</span> <span class="pre">algorithm</span></tt>被转换为<tt class="docutils literal"><span class="pre">Muellers</span> <span class="pre">algorithm</span></tt></p>
+</li>
+<li><dl class="first docutils">
+<dt>在空格和标点符号处对上一步的结果进行切分，组成一个词组。</dt>
+<dd><ul class="first last simple">
+<li>推荐：一些已经是驼峰命名的词语，也应该在这个时候被拆分。（例如 AdWords 被拆分为 ad words）。但是例如iOS之类的词语，它其实不是一个驼峰形式的词语，而是人们惯例使用的一个词语，因此不用做拆分。</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">经过上面两步后，先将所有的字母转换为小写，再把每个词语的第一个字母转换为大写。</p>
+</li>
+<li><p class="first">最后，将所有词语连在一起，形成一个标识符。</p>
+</li>
+</ol><div id="d53" class="divtoggle" style="display:block">
+<p>注意：词语原来的大小写规则，应该被完全忽略。以下是一些例子：</p>
+<div class="highlight-python"><div class="highlight"><pre>原始短语                正确写法                              非法写法
+"XML HTTP request"      XmlHttpRequest                        XMLHTTPRequest
+"new customer ID"       newCustomerId                         newCustomerID
+"inner stopwatch"       innerStopwatch                        innerStopWatch
+"supports IPv6 on iOS?" supportsIpv6OnIos                     supportsIPv6OnIOS
+"YouTube importer"      YouTubeImporter or YoutubeImporter[1]
+</pre></div>
+</div>
+<p>[1]号表示可以接受，但是不建议使用。</p>
+<p>注意：有些词语在英文中，可以用[-]连接使用，也可以不使用[-]直接使用。例如“nonempty”和“non-empty”都可以。因此方法名字为checkNonempty或者checkNonEmpty都是合法的写法。</p>
+</div>
+</div></div>
+<div class="section" id="id53">
+<h1>6. 编程实践<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id53" title="永久链接至标题">¶</a></h1>
+<div class="section" id="override">
+<h2>6.1. 使用@Override<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#override" title="永久链接至标题">¶</a></h2>
+<p>在允许的场景下推荐使用@Override来标注方法。包括方法覆盖（Override）了父类的方法、方法实现了接口方法、还有接口方法覆盖（Override）了父接口的方法定义。</p>
+<p>存在某些不允许的场景，例如Java SE 5不允许用@Override标注方法对接口的实现。</p>
+<p>例外情况：覆盖（Override）的目标方法标识为@Deprecated的情况除外。</p>
+</div>
+<div class="section" id="ignore">
+<h2>6.2. 异常捕获：不推荐Ignore<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#ignore" title="永久链接至标题">¶</a><img id="i62" class="imagetoggle imageJ040" onclick="changeImage(&#39;d621&#39;,&#39;i62&#39;);changeImage(&#39;d622&#39;,&#39;i62&#39;);" src="./java编码规范_files/toggleclose.gif"></h2><div id="J040">
+<p>[J040] 实际编码中仅仅在小部分场景下可以忽略异常不做任何处理。（通常是打印日志，或者重新包装抛出一个新异常）</p>
+<p>如果真的不需要处理异常，那么需要在注释中解释。</p></div><div id="d621" class="divtoggle divJ040" style="display:block"><p>举例：</p>
+<div class="highlight-python"><div class="highlight"><pre>try {
+    int i = Integer.parseInt(response);
+    return handleNumericResponse(i);
+} catch (NumberFormatException ok) {
+    // it's not numeric; that's fine, just continue
+}
+return handleTextResponse(response);
+</pre></div>
+</div></div>
+<p>例外情况：在测试Case中，如果这个Case是验证预想中的异常分支，那么可以省略注释解释。</p><div id="d622" class="divtoggle divJ040" style="display:block">
+<div class="highlight-python"><div class="highlight"><pre>try {
+    emptyStack.pop();
+    fail();
+} catch (NoSuchElementException expected) {
+}
+</pre></div>
+</div>
+<p>补充说明：针对上面这个场景，更推荐下面这种写法</p>
+<div class="highlight-python"><div class="highlight"><pre>@Test(expected = NoSuchElementException.class)
+public void testPopEmptyStack() throws Exception {
+    emptyStack.pop();
+}
+</pre></div>
+</div>
+</div></div>
+<div class="section" id="id54">
+<h2>6.3. 静态成员：<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id54" title="永久链接至标题">¶</a><img id="i63" class="imagetoggle" onclick="changeImage(&#39;d63&#39;,&#39;i63&#39;);" src="./java编码规范_files/toggleclose.gif"></h2>
+<p>当访问一个静态成员的时候，正确的用法是使用类名引用，而不是使用对象或者对象表达式来引用。</p><div id="d63" class="divtoggle" style="display:block">
+<div class="highlight-python"><div class="highlight"><pre>Foo aFoo = ...;
+Foo.aStaticMethod(); // good
+aFoo.aStaticMethod(); // bad
+somethingThatYieldsAFoo().aStaticMethod(); // very bad
+</pre></div>
+</div>
+</div></div>
+<div class="section" id="finalizer">
+<h2>6.4. Finalizer：禁用<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#finalizer" title="永久链接至标题">¶</a></h2>
+<p id="J037">[J037] 禁止覆盖（Override）Object.finalize方法。</p>
+</div>
+</div>
+<div class="section" id="javadoc">
+<h1>7. Javadoc<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#javadoc" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id55">
+<h2>7.1. 格式<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id55" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id56">
+<h3>7.1.1. 通用<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id56" title="永久链接至标题">¶</a></h3>
+<p>基础的Javadoc格式如下例：</p>
+<div class="highlight-python"><div class="highlight"><pre>/**
+ * Multiple lines of Javadoc text are written here,
+ * wrapped normally...
+ */
+public int method(String p1) {
+    ...
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="id57">
+<h3>7.1.2. 段落<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id57" title="永久链接至标题">¶</a></h3>
+<p>除了第一段之外，后续段落描述应以&lt;p&gt;标签开始。段落首个文字可以紧接着&lt;p&gt;标签，也可以换行重新开始。</p>
+<div class="highlight-cpp"><div class="highlight"><pre>/**
+ * Represents ....
+ *
+ * &lt;p&gt;More details here
+ */
+public class XXX {
+    ...
+}
+
+/**
+ * Represents ....
+ *
+ * &lt;p&gt;
+ * New line is allowed.
+ */
+public class XXX {
+    ...
+}
+</pre></div>
+</div>
+<div class="section" id="id58">
+<h3>7.1.3. @条目相关<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id58" title="永久链接至标题">¶</a></h3>
+<p id="J038">[J038] 在使用标准的@条目时按照@param，@return，@throws，@deprecated的顺序进行排列。这四个条目在使用时描述不能为空。其余条目顺序可以随意。 每个@条目必须占据独立的行。当一行不够需要换行时，使用8个以上的空格缩进。</p>
+</div>
+</div>
+<div class="section" id="id59">
+<h2>7.2. 摘要<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id59" title="永久链接至标题">¶</a></h2>
+<p id="J039">[J039] 每个类和成员的Javadoc需要以摘要片段来开头。这非常重要，因为Javadoc会自动抽取第一句话显示在索引和方法概述表中。写摘要片段的原则是简洁清晰。它不是一句完整的话，例如<tt class="docutils literal"><span class="pre">This</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">...</span></tt>，而是更接近短语，如<tt class="docutils literal"><span class="pre">A</span> <span class="pre">mutable</span> <span class="pre">sequence</span> <span class="pre">of</span> <span class="pre">characters.</span></tt>或<tt class="docutils literal"><span class="pre">Thrown</span> <span class="pre">when</span> <span class="pre">an</span> <span class="pre">exceptional</span> <span class="pre">arithmetic</span> <span class="pre">condition</span> <span class="pre">has</span> <span class="pre">occurred.</span></tt>。但在书写时采用类似句子的写法，以大写字母开头，并用.结尾。</p>
+</div>
+<div class="section" id="id60">
+<h2>7.3. Javadoc应该应用在哪些场合<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id60" title="永久链接至标题">¶</a></h2>
+<p>至少Javadoc应该应用于所有的public类、public和protected的成员变量和方法，除了后面条款列举的例外情况。</p>
+<p>除此之外的类和成员有时候也需要Javadoc。例如在需要总体解释一个类、方法、成员的具体实现逻辑的时候，通常会使用Javadoc替代注释。</p>
+<div class="section" id="id61">
+<h3>7.3.1. 例外情况：方法本身已经足够说明用途<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id61" title="永久链接至标题">¶</a></h3>
+<p>对于那些非常显而易见的方法可以不写Javadoc，比如getFoo，写一个<tt class="docutils literal"><span class="pre">Returns</span> <span class="pre">the</span> <span class="pre">foo</span></tt>的意义不大。</p>
+<p>注意：有时候不应该应用此例外来省略一些用户需要知道的信息。例如：getCannicalName。当大部分代码阅读者不知道canonical name是什么意思时，不应该省略Javadoc（或者只写Returns the canonical name也是不行的，需要详细阐述什么是canonical name）。</p>
+</div>
+<div class="section" id="id62">
+<h3>7.3.2. 例外情况：覆盖（Override）方法<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id62" title="永久链接至标题">¶</a></h3>
+<p>大多数情况下覆盖（Override）方法不需要Javadoc。</p>
+</div>
+</div>
+</div>
+<div class="section" id="id63">
+<h1>5. 工具支持<a class="headerlink" href="http://styleguide.baidu.com/style/java/index.html#id63" title="永久链接至标题">¶</a></h1>
+<p>对所有标记的有“eagle支持”的规则，大家可以本地调用<a href="http://wiki.babel.baidu.com/twiki/bin/view/Com/Pmo/Iit/%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E#方式二">客户端</a>检查代码是否符合这部分规则，另外在发起代码评审（<a href="http://cooder.baidu.com/">cooder</a>）时也将自动触发检查，结果会以行间评论的形式插入到代码评审中，帮助作者检查代码、帮助评审人评审代码，详细内容<a href="http://wiki.babel.baidu.com/twiki/bin/view/Com/Pmo/Iit/%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E">点击查看</a></p></div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+  
+
+<script>
+$(document).ready(function(){
+  $('#btn_switch_detail_state').click(function(){
+    var type = $(this).attr('class');
+    if (type == 'hidden'){
+      $('.imagetoggle').attr('src','toggleclose.gif');
+      $('.divtoggle').css('display','block');
+      $(this).attr('class', 'open');
+      $(this).attr('value', '隐藏所有详细信息');
+    }
+    else {
+      $('.imagetoggle').attr('src','toggleopen.gif');
+      $('.divtoggle').css('display','none');
+      $(this).attr('class', 'hidden');
+      $(this).attr('value', '展开所有详细信息');
+    }
+    
+    
+  });
+  
+});
+
+$(document).ready(function(){
+    var current_id=window.location.hash.slice(1);
+    $(".div"+current_id).css('display','block');
+    $(".image"+current_id).attr('src','toggleclose.gif');
+    var patt=new RegExp('^J\\d+$');
+    if (patt.test(current_id)){
+        $(window.location.hash).css('background','#FFF5B3');
+    }
+})
+
+function changeImage(id,key){
+var show=document.getElementById(id).style.display;
+element=document.getElementById(key);
+if(show=='none')
+{
+document.getElementById(id).style.display='block';
+element.src="toggleclose.gif";
+}
+else{
+document.getElementById(id).style.display='none';
+element.src="toggleopen.gif";
+}
+}
+
+function eagle(){
+if (document.getElementById('eagle').style.display=='none')
+{
+document.getElementById('eagle').style.display='block';
+document.getElementById('eaglebutton').innerHTML="隐藏eagle支持规则";
+}
+else
+{
+document.getElementById('eagle').style.display='none';
+document.getElementById('eaglebutton').innerHTML="展示eagle支持规则";
+}
+}
+window.onscroll = function () {
+    if (document.documentElement.scrollTop + document.body.scrollTop > 100) {
+        document.getElementById("gototop").style.display = "block";
+    }
+    else {
+        document.getElementById("gototop").style.display = "none";
+    }
+}
+</script>
+
+</div></body></html>

@@ -1,0 +1,22 @@
+{
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AdvancedNewFile",
+		"Colorcoder",
+		"Emmet",
+		"Emmet Css Snippets",
+		"Git",
+		"LaTeXTools",
+		"MarkdownEditing",
+		"Package Control",
+		"Pretty JSON",
+		"RailsCasts Colour Scheme",
+		"Sass",
+		"SublimeERB",
+		"SyncedSideBar",
+		"Tag"
+	]
+}
