@@ -1,0 +1,11 @@
+#Wed Jun 25 13:55:16 CST 2014
+fixTomcatHomeBug=fixed
+contextsDir=E\:\\tomcat-6.0.26\\conf\\Catalina\\localhost
+tomcatDir=E\:\\tomcat-6.0.26
+configMode=serverFile
+tomcatJRE=1403675085036
+tomcatConfigFile=E\:\\tomcat-6.0.26\\conf\\server.xml
+eclipse.preferences.version=1
+tomcatVersion=tomcatV6
+managerUrl=http\://localhost\:8080/manager
+projectsInSourcePath=crm-web;crm_cal;

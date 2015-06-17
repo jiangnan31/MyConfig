@@ -1,0 +1,12 @@
+#Mon Jan 26 14:53:08 CST 2015
+AbstractTextEditor.Color.Background.SystemDefault=false
+lineNumberRuler=true
+currentLineColor=149,227,186
+printMargin=true
+spacesForTabs=true
+showWhitespaceCharacters=true
+AbstractTextEditor.Color.Background=199,237,204
+bookmarkIndicationColor=107,147,186
+eclipse.preferences.version=1
+printMarginColumn=120
+overviewRuler_migration=migrated_3.1
